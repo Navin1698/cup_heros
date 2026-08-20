@@ -40,7 +40,8 @@ PlayerSettings:
   m_AdditionalCompilerArguments: {}
   m_PlatformArchitecture: {}
   scriptingBackend:
-    Android: 1
+    Android: 0
+  androidTargetArchitectures: 1
   appBundle: 0
   buildApkPerCpuArchitecture: 0
   androidTargetSdkVersion: 33

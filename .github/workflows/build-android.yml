@@ -1,4 +1,4 @@
-name: Build Android APK 📱
+name: Build Android APK
 
 on:
   push:
@@ -12,12 +12,11 @@ jobs:
     name: Build Android APK
     runs-on: ubuntu-latest
     steps:
-      # 1. Checkout repository with LFS support
+      # 1. Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          lfs: true
 
       # 2. Cache Unity Library folder for faster builds
       - name: Cache Unity Library
