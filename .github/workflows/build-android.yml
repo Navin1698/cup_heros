@@ -40,6 +40,7 @@ jobs:
           unityVersion: 2022.3.20f1
           buildName: Game1-Android
           androidTargetSdkVersion: Android33
+          androidExportType: androidPackage
 
       # 4. Upload APK artifact for download
       - name: Upload Android APK Artifact
