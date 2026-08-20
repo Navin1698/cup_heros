@@ -18,12 +18,21 @@ jobs:
         with:
           fetch-depth: 0
 
-      # 2. Clean any stale build or library caches
+      # 2. Clean workspace
       - name: Clean workspace cache
         run: |
           rm -rf Library Temp Logs obj
 
-      # 3. Build Unity Project for Android
+      # 3. Check Unity License Secret Configuration
+      - name: Check Unity License configuration
+        run: |
+          if [ -z "${{ secrets.UNITY_LICENSE }}" ] && [ -z "${{ secrets.UNITY_EMAIL }}" ]; then
+            echo "::error::UNITY_LICENSE secret is not configured in GitHub Repository Settings!"
+            echo "::error::Please follow SETUP_GUIDE.md to generate your free Unity License (.ulf) file and add UNITY_LICENSE in GitHub Repository Settings -> Secrets and variables -> Actions."
+            exit 1
+          fi
+
+      # 4. Build Unity Project for Android
       - name: Build Unity Project (Android)
         uses: game-ci/unity-builder@v4
         env:
@@ -38,7 +47,7 @@ jobs:
           androidExportType: androidPackage
           customParameters: -nographics
 
-      # 4. Upload APK artifact for download
+      # 5. Upload APK artifact for download
       - name: Upload Android APK Artifact
         uses: actions/upload-artifact@v4
         with:
