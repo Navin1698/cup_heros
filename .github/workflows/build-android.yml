@@ -18,14 +18,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      # 2. Cache Unity Library folder for faster builds
-      - name: Cache Unity Library
-        uses: actions/cache@v4
-        with:
-          path: Library
-          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
-          restore-keys: |
-            Library-
+      # 2. Clean any stale build or library caches
+      - name: Clean workspace cache
+        run: |
+          rm -rf Library Temp Logs obj
 
       # 3. Build Unity Project for Android
       - name: Build Unity Project (Android)
@@ -40,6 +36,7 @@ jobs:
           buildName: Game1-Android
           androidTargetSdkVersion: Android33
           androidExportType: androidPackage
+          customParameters: -nographics
 
       # 4. Upload APK artifact for download
       - name: Upload Android APK Artifact
