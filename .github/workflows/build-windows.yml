@@ -1,0 +1,57 @@
+name: Build Windows PC (.exe)
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+jobs:
+  buildWindows:
+    name: Build Windows PC
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # 2. Clean workspace
+      - name: Clean workspace cache
+        run: |
+          rm -rf Library Temp Logs obj
+
+      # 3. Check Unity License Configuration
+      - name: Check Unity License configuration
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+        run: |
+          if [ -z "$UNITY_LICENSE" ] && [ -z "$UNITY_EMAIL" ]; then
+            echo "::error::UNITY_LICENSE secret is not configured in GitHub Repository Settings!"
+            exit 1
+          fi
+
+      # 4. Build Unity Project for Windows Standalone
+      - name: Build Unity Project (Windows)
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          targetPlatform: StandaloneWindows64
+          unityVersion: 2022.3.20f1
+          buildMethod: BuildScript.BuildWindows
+          buildName: Game1-Windows
+
+      # 5. Upload Windows Executable Artifact for instant download & testing
+      - name: Upload Windows PC Artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Game1-Windows-PC
+          path: build/Windows
+          if-no-files-found: ignore
