@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!129 &1
+PlayerSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 22
+  productGUID: 00000000000000000000000000000000
+  companyName: DefaultCompany
+  productName: cup_heros
+  defaultCursor: {fileID: 0}
+  cursorHotspot: {x: 0, y: 0}
+  m_BuildTargetIcons: []
+  m_BuildTargetPlatformIcons: []
+  m_BuildTargetBatching: []
+  m_BuildTargetGraphicsJobs: []
+  m_BuildTargetGraphicsJobMode: []
+  m_BuildTargetGraphicsAPIs: []
+  m_BuildTargetVRSettings: []
+  openGLRequireES31: 0
+  openGLRequireES31AEP: 0
+  openGLRequireES32: 0
+  m_TemplateCustomTags: {}
+  mobileMTRendering:
+    Android: 1
+    iPhone: 1
+  m_XRPreInitBuffer: 0
+  m_StackedAreaThreadedRendering: 1
+  m_GraphicsJobs: 0
+  m_AtmosphereMaterial: {fileID: 0}
+  m_SunServer: {fileID: 0}
+  m_ReflectionIntensity: 1
+  m_CustomReflection: {fileID: 0}
+  m_SunMaterial: {fileID: 0}
+  m_DefaultSkybox: {fileID: 0}
+  bundleVersion: 1.0.0
+  bundleCode: 1
+  activeColorSpace: 0
+  m_RequiredProfiles: []
+  m_ScriptingDefineSymbols: {}
+  m_AdditionalCompilerArguments: {}
+  m_PlatformArchitecture: {}
+  scriptingBackend:
+    Android: 1
+  appBundle: 0
+  buildApkPerCpuArchitecture: 0
+  androidTargetSdkVersion: 33
+  androidMinSdkVersion: 22
+  androidPreferredInstallLocation: 1
+  androidExportType: 0
+  androidShowActivityIndicatorOnLoading: -1
+  androidSplashScreenScale: 0
+  androidKeystoreName: 
+  androidKeyaliasName: 
+  androidBuildApkPerCpuArchitecture: 0
+  androidTVCompatibility: 0
+  androidIsGame: 1
+  androidEnableHeadTracking: 0
+  androidSupportedAspectRatioMode: 0
+  bundleIdentifier:
+    Android: com.DefaultCompany.cup_heros
+    Standalone: com.DefaultCompany.cup_heros
+    iPhone: com.DefaultCompany.cup_heros
