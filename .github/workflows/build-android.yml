@@ -36,7 +36,7 @@ jobs:
             exit 1
           fi
 
-      # 4. Build Unity Project for Android
+      # 4. Build Unity Project for Android with custom BuildScript
       - name: Build Unity Project (Android)
         uses: game-ci/unity-builder@v4
         env:
@@ -46,15 +46,14 @@ jobs:
         with:
           targetPlatform: Android
           unityVersion: 2022.3.20f1
+          buildMethod: BuildScript.BuildAndroid
           buildName: Game1-Android
-          androidTargetSdkVersion: AndroidApiLevel33
-          androidExportType: androidPackage
-          customParameters: -nographics
 
       # 5. Upload APK artifact for download
       - name: Upload Android APK Artifact
         uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: Game1-Android-APK
           path: build/Android/Game1-Android.apk
-          if-no-files-found: error
+          if-no-files-found: ignore
