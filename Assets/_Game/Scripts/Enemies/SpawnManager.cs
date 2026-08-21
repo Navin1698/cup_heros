@@ -13,7 +13,22 @@ namespace OrbRaiders.Enemies
 
         private readonly List<EnemyBase> activeEnemies = new List<EnemyBase>();
 
-        public int ActiveEnemyCount => activeEnemies.Count;
+        public int ActiveEnemyCount
+        {
+            get
+            {
+                activeEnemies.RemoveAll(e => e == null || !e.IsAlive || !e.gameObject.activeInHierarchy);
+                return activeEnemies.Count;
+            }
+        }
+
+        public void UnregisterEnemy(EnemyBase enemy)
+        {
+            if (enemy != null)
+            {
+                activeEnemies.Remove(enemy);
+            }
+        }
 
         private void Awake()
         {

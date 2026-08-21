@@ -20,9 +20,9 @@ namespace OrbRaiders.Core
 
         private void Start()
         {
-            if (autoLoadMainMenuOnStart && GameStateManager.Instance != null)
+            if (autoLoadMainMenuOnStart)
             {
-                GameStateManager.Instance.ChangeState(GameState.MainMenu);
+                UnityEngine.SceneManagement.SceneManager.LoadScene("TestArena");
             }
         }
 

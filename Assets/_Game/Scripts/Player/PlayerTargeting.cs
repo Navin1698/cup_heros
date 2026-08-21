@@ -28,7 +28,6 @@ namespace OrbRaiders.Player
 
             Transform bestTarget = null;
             float closestDistanceSqr = float.MaxValue;
-            bool bossFound = false;
 
             foreach (var col in colliders)
             {

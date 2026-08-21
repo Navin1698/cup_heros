@@ -169,7 +169,8 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.4
   androidMinAspectRatio: 1
-  applicationIdentifier: {}
+  applicationIdentifier:
+    Android: com.DefaultCompany.cup_heros
   buildNumber:
     Standalone: 0
     VisionOS: 0
@@ -262,13 +263,13 @@ PlayerSettings:
   templateDefaultScene: 
   useCustomMainManifest: 0
   useCustomLauncherManifest: 0
-  useCustomMainGradleTemplate: 0
-  useCustomLauncherGradleManifest: 0
-  useCustomBaseGradleTemplate: 0
-  useCustomGradlePropertiesTemplate: 0
+  useCustomMainGradleTemplate: 1
+  useCustomLauncherGradleManifest: 1
+  useCustomBaseGradleTemplate: 1
+  useCustomGradlePropertiesTemplate: 1
   useCustomGradleSettingsTemplate: 0
   useCustomProguardFile: 0
-  AndroidTargetArchitectures: 2
+  AndroidTargetArchitectures: 3
   AndroidAllowedArchitectures: -1
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
@@ -514,7 +515,10 @@ PlayerSettings:
   m_BuildTargetGroupLightmapSettings: []
   m_BuildTargetGroupLoadStoreDebugModeSettings: []
   m_BuildTargetNormalMapEncoding: []
-  m_BuildTargetDefaultTextureCompressionFormat: []
+  m_BuildTargetDefaultTextureCompressionFormat:
+  - serializedVersion: 3
+    m_BuildTarget: Android
+    m_Formats: 01000000
   playModeTestRunnerEnabled: 0
   runPlayModeTestAsEditModeTest: 0
   actionOnDotNetUnhandledException: 1
@@ -784,7 +788,7 @@ PlayerSettings:
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
-    Android: 0
+    Android: 1
   il2cppCompilerConfiguration: {}
   il2cppCodeGeneration: {}
   il2cppStacktraceInformation: {}
@@ -817,8 +821,8 @@ PlayerSettings:
   editorAssembliesCompatibilityLevel: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: cup_heros
-  metroPackageVersion: 
+  metroPackageName: cupheros
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -826,7 +830,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: cup_heros
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: cup_heros
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
@@ -893,7 +897,7 @@ PlayerSettings:
   qnxGraphicConfPath: 
   apiCompatibilityLevel: 6
   captureStartupLogs: {}
-  activeInputHandler: -1
+  activeInputHandler: 1
   windowsGamepadBackendHint: 0
   cloudProjectId: 
   framebufferDepthMemorylessMode: 0

@@ -25,6 +25,14 @@ namespace OrbRaiders.Player
             characterController = GetComponent<CharacterController>();
         }
 
+        private void Start()
+        {
+            if (joystick == null)
+            {
+                joystick = FindFirstObjectByType<VirtualJoystick>();
+            }
+        }
+
         public void SetJoystick(VirtualJoystick activeJoystick)
         {
             joystick = activeJoystick;

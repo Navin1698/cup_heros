@@ -7,13 +7,16 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/_Game/Scenes/Boot.unity
-    guid: 00000000000000000000000000000000
+    guid: a8d03dbd01c323a4e83d97c97f936e1b
   - enabled: 1
     path: Assets/_Game/Scenes/MainMenu.unity
-    guid: 00000000000000000000000000000000
+    guid: 84136679a587bbc409e3f842b876dfa3
   - enabled: 1
     path: Assets/_Game/Scenes/Battle.unity
-    guid: 00000000000000000000000000000000
+    guid: d27e4e205d6037044987d357bb5bf3f8
   - enabled: 1
     path: Assets/_Game/Scenes/TestArena.unity
-    guid: 00000000000000000000000000000000
+    guid: dea57f07995086e46be11a6356085d87
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 2f7b9d94cf7c2534a8c87fc1c5006bd3, type: 2}
+  m_UseUCBPForAssetBundles: 0

@@ -76,13 +76,13 @@ public static class BuildScript
             Directory.CreateDirectory(buildDir);
         }
 
-        PlayerSettings.SetScriptingBackend(BuildTargetGroup.Android, ScriptingImplementation.Mono2x);
-        PlayerSettings.Android.targetArchitectures = AndroidArchitecture.ARMv7;
+        PlayerSettings.SetScriptingBackend(UnityEditor.Build.NamedBuildTarget.Android, ScriptingImplementation.IL2CPP);
+        PlayerSettings.Android.targetArchitectures = AndroidArchitecture.ARM64 | AndroidArchitecture.ARMv7;
         PlayerSettings.Android.targetSdkVersion = AndroidSdkVersions.AndroidApiLevelAuto;
-        PlayerSettings.Android.minSdkVersion = AndroidSdkVersions.AndroidApiLevel22;
+        PlayerSettings.Android.minSdkVersion = AndroidSdkVersions.AndroidApiLevel25;
         PlayerSettings.companyName = "DefaultCompany";
         PlayerSettings.productName = "cup_heros";
-        PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.Android, "com.DefaultCompany.cup_heros");
+        PlayerSettings.SetApplicationIdentifier(UnityEditor.Build.NamedBuildTarget.Android, "com.DefaultCompany.cup_heros");
 
         BuildPlayerOptions options = new BuildPlayerOptions
         {
@@ -140,6 +140,30 @@ public static class BuildScript
         };
 
         ExecuteBuild(options);
+    }
+
+    [MenuItem("Tools/Configure Android Player Settings")]
+    public static void ConfigureAndroidSettings()
+    {
+        PlayerSettings.SetScriptingBackend(UnityEditor.Build.NamedBuildTarget.Android, ScriptingImplementation.IL2CPP);
+        PlayerSettings.Android.targetArchitectures = AndroidArchitecture.ARM64 | AndroidArchitecture.ARMv7;
+        PlayerSettings.Android.targetSdkVersion = AndroidSdkVersions.AndroidApiLevelAuto;
+        PlayerSettings.Android.minSdkVersion = AndroidSdkVersions.AndroidApiLevel25;
+        
+        var projectSettingsAsset = AssetDatabase.LoadAllAssetsAtPath("ProjectSettings/ProjectSettings.asset");
+        if (projectSettingsAsset != null && projectSettingsAsset.Length > 0)
+        {
+            SerializedObject projectSettings = new SerializedObject(projectSettingsAsset[0]);
+            SerializedProperty activeInputHandler = projectSettings.FindProperty("activeInputHandler");
+            if (activeInputHandler != null)
+            {
+                activeInputHandler.intValue = 0; // 0 = Input Manager (Old)
+                projectSettings.ApplyModifiedProperties();
+            }
+        }
+
+        AssetDatabase.SaveAssets();
+        Debug.Log("[BuildScript] Android Player Settings configured successfully (IL2CPP, ARM64+ARMv7, Input Manager)!");
     }
 }
 #endif

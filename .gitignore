@@ -1,3 +1,4 @@
+# This .gitignore file should be placed at the root of your Unity project directory
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
@@ -6,16 +7,49 @@
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 /[Mm]emoryCaptures/
+/[Rr]ecordings/
+
+# Android / Mobile / Gradle build outputs
+.utmp/
+.gradle/
+*.apk
+*.aab
+*.dex
+
+# Burst compiler debug information
+*_BurstDebugInformation_DoNotShip/
+
+# Visual Studio / Visual Studio Code / JetBrains Rider
+.vs/
+.idea/
+.vscode/
+ExportedObj/
+.consulo/
 *.csproj
 *.unityproj
 *.sln
 *.suo
+*.tmp
 *.user
 *.userprefs
 *.pidb
 *.booproj
 *.svd
 *.pdb
+*.mdb
 *.opendb
 *.VC.db
+
+# Unity3D generated meta files
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# OS generated files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+[Tt]humbs.db

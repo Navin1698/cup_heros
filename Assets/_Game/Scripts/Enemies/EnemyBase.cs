@@ -113,6 +113,7 @@ namespace OrbRaiders.Enemies
                 XpValue = definition != null ? definition.xpDropValue : 15
             });
 
+            SpawnManager.Instance?.UnregisterEnemy(this);
             gameObject.SetActive(false);
         }
     }
